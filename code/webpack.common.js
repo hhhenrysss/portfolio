@@ -19,15 +19,9 @@ module.exports = {
             use:['style-loader','css-loader', 'sass-loader']
         },
         {
-            test: /\.ts(x?)$/,
+            test: /\.(ts|js)x?$/,
             exclude: /node_modules/,
-            loader: "ts-loader"
-        },
-        // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
-        {
-            enforce: "pre",
-            test: /\.js$/,
-            loader: "source-map-loader"
+            loader: 'babel-loader'
         }
     ],
     plugins: [
