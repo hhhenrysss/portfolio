@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
-        app: './src/index.js',
+        app: './components/index.tsx',
     },
     output: {
         filename: 'dist.js',
@@ -21,11 +21,7 @@ module.exports = {
         {
             test: /\.ts(x?)$/,
             exclude: /node_modules/,
-            use: [
-                {
-                    loader: "ts-loader"
-                }
-            ]
+            loader: "ts-loader"
         },
         // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
         {
@@ -35,11 +31,10 @@ module.exports = {
         }
     ],
     plugins: [
-        // new CleanWebpackPlugin(['dist/*']) for < v2 versions of CleanWebpackPlugin
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            title: `HSong's Website`,
-            filename: `dist/index.html`
+            filename: `dist/index.html`,
+            template: `index.html`
         }),
     ],
     externals: {
