@@ -1,0 +1,66 @@
+$blue = #4A90E2;
+$yellow = #F39C12;
+$red = #BD4A4D;
+$grey = #484644;
+
+@function toEm($pt) {
+  @return $pt / 6 * 5
+}
+
+#root {
+  font-size: toEm(18);
+}
+
+.mainTitle {
+  font-size: toEm(48);
+}
+
+.navTitle {
+  font-size: toEm(24);
+}
+
+.subTitle {
+  font-size: toEm(36);
+}
+
+.greyText {
+  color: $grey;
+}
+
+.blueText {
+  color: $blue;
+}
+
+.yellowText {
+  color: $yellow;
+}
+
+.redText {
+  color: $red;
+}
+
+%divider {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+%horizontalDivider {
+  @extend %divider;
+  width: 80%;
+  height: 2px;
+}
+
+.redDivider {
+  @extend %horizontalDivider;
+  background-color: linear-gradient(to left, $grey, $red);
+}
+.yellowDivider {
+  @extend %horizontalDivider;
+  background-color: linear-gradient(to left, $yellow, $grey);
+}
+.blueDivider {
+  @extend %divider;
+  width: 2px;
+  height: 80%;
+  background-color: linear-gradient(to bottom, $blue, $grey);
+}

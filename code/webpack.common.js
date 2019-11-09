@@ -11,28 +11,30 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
     },
     resolve: {
-        extensions: [".ts", ".tsx"]
+        extensions: [".ts", ".tsx", ".js", ".jsx"]
     },
-    rules: [
-        {
-            test:/\.(s*)css$/,
-            use:['style-loader','css-loader', 'sass-loader']
-        },
-        {
-            test: /\.(ts|js)x?$/,
-            exclude: /node_modules/,
-            loader: 'babel-loader'
-        }
-    ],
+    module: {
+        rules: [
+            {
+                test:/\.(s*)css$/,
+                use:[
+                    {loader: 'style-loader'},
+                    {loader: 'css-loader', options: {modules: true}},
+                    {loader: 'sass-loader'}
+                ]
+            },
+            {
+                test: /\.(ts|js)x?$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader'
+            }
+        ]
+    },
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            filename: `dist/index.html`,
+            filename: `index.html`,
             template: `index.html`
         }),
-    ],
-    externals: {
-        "react": "React",
-        "react-dom": "ReactDOM"
-    }
+    ]
 };
