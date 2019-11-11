@@ -15,13 +15,25 @@ module.exports = {
     },
     module: {
         rules: [
+            // for modular scss
             {
                 test:/\.(s*)css$/,
                 use:[
                     {loader: 'style-loader'},
                     {loader: 'css-loader', options: {modules: true}},
                     {loader: 'sass-loader'}
-                ]
+                ],
+                exclude: /global.scss/
+            },
+            // for global scss
+            {
+                test:/\.(s*)css$/,
+                use:[
+                    {loader: 'style-loader'},
+                    {loader: 'css-loader'},
+                    {loader: 'sass-loader'}
+                ],
+                include: /global.scss/
             },
             {
                 test: /\.(ts|js)x?$/,
