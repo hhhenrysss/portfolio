@@ -1,0 +1,21 @@
+// fonts
+@mixin normal-font($type: 'normal') {
+    font-family: "Fira Sans", sans-serif;
+    @if $type == 'normal' {
+         font-weight: 400; // regular
+    } @else if $type == 'light' {
+        font-weight: 300; // light
+    } @else if $type == 'heavy' {
+        font-weight: 500; // medium
+    } @else if $type == 'itatic' {
+        font-weight: 300;
+        font-style: italic;
+    } @else {
+        @error "invalid argument for mixin normal-font";
+    }
+}
+
+@mixin code-font() {
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 500;
+}

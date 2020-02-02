@@ -20,7 +20,7 @@ module.exports = {
                 test:/\.(s*)css$/,
                 use:[
                     {loader: 'style-loader'},
-                    {loader: 'css-loader', options: {modules: true}},
+                    {loader: 'css-loader'},
                     {loader: 'sass-loader'}
                 ],
                 exclude: /global.scss/
@@ -36,9 +36,19 @@ module.exports = {
                 include: /global.scss/
             },
             {
-                test: /\.(ts|js)x?$/,
+                test: /\.ts(x?)$/,
                 exclude: /node_modules/,
-                loader: 'babel-loader'
+                use: [
+                    {
+                        loader: "ts-loader"
+                    }
+                ]
+            },
+            // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
+            {
+                enforce: "pre",
+                test: /\.js$/,
+                loader: "source-map-loader"
             }
         ]
     },
