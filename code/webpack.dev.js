@@ -10,6 +10,7 @@ module.exports = merge(common, {
         contentBase: './dist',
         hot: false,
         inline: false,
-        liveReload: false
+        liveReload: false,
+        historyApiFallback: true
     },
 });
