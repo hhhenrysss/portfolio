@@ -17,5 +17,6 @@
 
 @mixin code-font() {
     font-family: "IBM Plex Mono", monospace;
-    font-weight: 500;
+    font-weight: 300;
+    font-style: italic;
 }

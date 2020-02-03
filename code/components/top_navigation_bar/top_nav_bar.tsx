@@ -11,6 +11,7 @@ import {Projects} from "../projects/projects";
 import {Researches} from "../researches/researches";
 
 import '../../styles/top_bav_bar.scss';
+import {NotFound} from "../default/not_found";
 
 export function TopNavigationBar() {
     return (
@@ -23,7 +24,7 @@ export function TopNavigationBar() {
                         <li><NavLink to={"/researches"} activeClassName={'active'}>Researches</NavLink></li>
                     </ul>
                     <ul className={'nav-end'}>
-                        <li><NavLink to={"/about"} activeClassName={'active'}>Hi.</NavLink></li>
+                        <li><NavLink to={"/about"} activeClassName={'active'}>Hi. This is HS.</NavLink></li>
                     </ul>
                 </nav>
 
@@ -39,6 +40,9 @@ export function TopNavigationBar() {
                     </Route>
                     <Route path="/about">
                         <About/>
+                    </Route>
+                    <Route>
+                        <NotFound/>
                     </Route>
                 </Switch>
             </div>
